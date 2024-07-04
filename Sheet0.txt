@@ -1,0 +1,6 @@
+goal of website -- allow one person to another computer --- another computer<give me some content -- html,css and java files>
+goal of browser -- allow users to hit specific servers using URL, it give back css,html and js and render back it on screen 
+
+js is KEY 
+
+ 
