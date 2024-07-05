@@ -24,3 +24,14 @@ js is KEY
 
 
  flexbox works for only immediate children
+
+
+ JS ---- 
+
+ replit
+ Interpreted lang
+ line by line lang
+ single threded lang 
+ dynamic lang 
+
+ java ,  c is static lang 
