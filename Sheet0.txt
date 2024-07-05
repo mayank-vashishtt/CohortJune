@@ -3,4 +3,24 @@ goal of browser -- allow users to hit specific servers using URL, it give back c
 
 js is KEY 
 
- 
+ HTML ---- 
+
+ Tags -- img
+ Attributes -- src
+
+ div -- one full width of a line , if more than that it will overflow  
+ span -- it will only take as much space as it needs , dont go to next line 
+
+
+ CSS --- 
+
+ background 
+ border-radius 
+ border 1px solid black 
+ padding
+ margin 
+ box-shadow 2px 10px 10px black
+ font-size
+
+
+ flexbox works for only immediate children
