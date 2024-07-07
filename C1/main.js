@@ -121,4 +121,56 @@ function objectMethods(obj) {
 }
 
 
+
+sync  -- one after another , sequential , together 
+async --  parallel , not sequential
+
+setTimeout() -- async
+
+fs.readFile() -- async
+
+fetch() -- async
+
 */
+
+const fs =  require("fs");
+// filesystem module -- help us to read or write a file '
+
+//  fs.readFile("a.txt", "utf-8", function(err, data){
+//     console.log(data);
+//  })
+
+//  console.log("hello")
+// // first thread will complete all the logs, then it will go to pending call backs 
+
+/**
+ * 
+ * Promises -- async
+ * 
+ * in .then we can even write a function 
+ */
+
+// new Promise((resolve, reject) => {
+//     fs.readFile("a.txt", "utf-8", function(err, data){
+//         if(err){
+//             reject(err);
+//         }
+//         resolve(data);
+//      })
+// }).then((data) => {
+//     console.log(data);
+// }).catch((err) => {
+//     console.log(err);
+
+
+
+// async await 
+// if you are using promiseHooks, do async logic in isTypedArray, then it is something of use 
+
+
+// when using promise and then calling it by async await will over the use of .then 
+
+// await -- code will wait here and it should be use in async function 
+  
+
+// })
