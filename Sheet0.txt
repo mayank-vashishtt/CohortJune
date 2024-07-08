@@ -137,8 +137,10 @@ apna URL chahiye , to usse point krna pdega apne system ke IP pr
  403 -- authentication issue 
  500 -- internal server error 
 
- 
+
+ express.js 
+ it is a library 
 
 
 
-
+running the get function in my phone as using laptop ip using ifconfig ANd having laptop and phone on same wifi 
