@@ -35,3 +35,110 @@ js is KEY
  dynamic lang 
 
  java ,  c is static lang 
+
+
+ ECMAScript 
+ it is a scripting language in which js is based 
+ serve as the guideline on the rules for scripting language design ES6, ES5
+
+ js
+it is a scripting lang that conforms to the ECMAScript specification 
+js even have additional feature -- setinterval , fs, 
+
+v8  - chrome open-source
+spidermonkey  -- firefox
+these are compiler which compile js code and should be changeed acc to latest ECMAScript updates 
+
+
+
+
+
+
+Node.js and its runtime 
+node.js is a runtime something which cann run js 
+
+
+js meant to be on browser
+
+
+
+v8 c++  and spidermonkey rust
+js ko convert krte h byte code
+v8 me add kri few things on top -- node.js 
+it a runtime which is used to implement js code on backend 
+
+use case - 
+clis 
+http server -- exposes your alogrithm to the world, it let people request for and use your logic -- framework -- express, next.js
+video player
+games
+
+
+
+Bun 
+competitor of Node.js 
+written in zig 
+
+HTTP 
+when meet hand shake
+it is machine to communicate  
+most common way to website frontent to talk to its backend 
+
+open AI -- close sourced model 
+
+
+HTTP server -- thing that exposes code to the world with authentication -- Remote procedure call 
+
+
+HTTP 
+
+things that client should worry about , sending the req 
+- protocol -- http  / https 
+- address - url / ip /port 
+- route 
+- method 
+- header body qyery params
+
+
+server needs to worry 
+-response header 
+-status code 
+-response body 
+
+protocol + url + route 
+http :// chat.openai.com  / backend-api/conversation \
+
+?? backend know you are logged in through cookies <it is one of the header> authorization same as cookie  
+
+
+
+?? what happend when you enter google.com in your browser 
+ browser parsess the URL 
+ does a DNS lookup -- convert is to IP 
+ establish the conncetion to the  IP 
+
+
+-DNS resolution 
+urls are like contact in your phone 
+they are map to IP 
+apna URL chahiye , to usse point krna pdega apne system ke IP pr 
+
+?? on server after the request is achievied 
+ you get the inputs 
+ you do some computation on it 
+ you return the output 
+
+
+ -get post delete put  CRUD
+
+-status code 
+ 200 -- everything is right
+ 404 -- page/route not found 
+ 403 -- authentication issue 
+ 500 -- internal server error 
+
+ 
+
+
+
+
