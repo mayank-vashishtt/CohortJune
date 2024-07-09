@@ -144,3 +144,7 @@ apna URL chahiye , to usse point krna pdega apne system ke IP pr
 
 
 running the get function in my phone as using laptop ip using ifconfig ANd having laptop and phone on same wifi 
+
+in script in html there is variable called const backendUrl = ""
+
+//  create a todo app that lets user store todos on the server
