@@ -118,23 +118,51 @@ app.put('/', (req, res) => {
 });
 
 app.delete('/', (req, res) => {
-    
-    const newKidneys = [] ; 
-    for(let i =0 ; i< users[0].Kidneys.length; i++){
-        if(users[0].Kidneys[i].healthy){
+
+    // 411 -- if no unhealthy kidneys
+    // only if one bad or unhealthy kidney than to this 
+
+    if(atleastOneUnhealthyKidney()){
+        const newKidneys = [] ; 
+        for(let i =0 ; i< users[0].Kidneys.length; i++){
+            if(users[0].Kidneys[i].healthy){
             newKidneys.push(users[0].Kidneys[i]);
+            }
         }
-    }
 
-    users[0].Kidneys = newKidneys;
+        users[0].Kidneys = newKidneys;
 
-    res.json({
+         res.json({
         msg : "done"
-    });
+        });
+
+    }
+    else{
+        // res.sendStatus(411);
+        res.status(411).json({
+            msg : "You need atleast one unhealthy kidney"
+        });
+    }
+    
+    
+    
 
 
 });
 
+// edge case for delete function 
+function atleastOneUnhealthyKidney() {
+    let atleastOneUnhealthyKidney = false;
+
+    for(let i =0 ; i< users[0].Kidneys.length; i++){
+        if(!users[0].Kidneys[i].healthy){
+            atleastOneUnhealthyKidney = true;
+        
+        }
+    }
+    return atleastOneUnhealthyKidney;
+
+}
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
