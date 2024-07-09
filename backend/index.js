@@ -60,110 +60,144 @@
 //     console.log(`Server is running on port ${port}`);
 // })
 
-const express = require('express'); 
-const app = express();
-const bodyParser = require('body-parser');
+// const express = require('express'); 
+// const app = express();
+// const bodyParser = require('body-parser');
 
-app.use(bodyParser.json());
-const users = [{
-    name: 'Madsya',
-    Kidneys: [{
-        healthy: false
-    }]
-}];
+// app.use(bodyParser.json());
+// const users = [{
+//     name: 'Madsya',
+//     Kidneys: [{
+//         healthy: false
+//     }]
+// }];
 
-app.get('/', (req, res) => {
-    const userKidneys = users[0].Kidneys; // Renamed to be more generic
-    // console.log(userKidneys);
-    const numberOfKidneys = userKidneys.length;
-    let numberOfHealthyKidneys = 0;
+// app.get('/', (req, res) => {
+//     const userKidneys = users[0].Kidneys; // Renamed to be more generic
+//     // console.log(userKidneys);
+//     const numberOfKidneys = userKidneys.length;
+//     let numberOfHealthyKidneys = 0;
 
-    for (let i = 0; i < numberOfKidneys; i++) {
-        if (userKidneys[i].healthy) {
-            numberOfHealthyKidneys++;
-        }
-    }
+//     for (let i = 0; i < numberOfKidneys; i++) {
+//         if (userKidneys[i].healthy) {
+//             numberOfHealthyKidneys++;
+//         }
+//     }
 
-    const numberOfUnhealthyKidneys = numberOfKidneys - numberOfHealthyKidneys;
+//     const numberOfUnhealthyKidneys = numberOfKidneys - numberOfHealthyKidneys;
 
-    res.json({
-        // userKidneys,
-        numberOfHealthyKidneys,
-        numberOfUnhealthyKidneys
-    });
-});
+//     res.json({
+//         // userKidneys,
+//         numberOfHealthyKidneys,
+//         numberOfUnhealthyKidneys
+//     });
+// });
 
-app.post('/', (req, res) => {
-    // body data 
-    const isHealthy = req.body.isHealthy;
-    users[0].Kidneys.push({
-        healthy: isHealthy
-    });
+// app.post('/', (req, res) => {
+//     // body data 
+//     const isHealthy = req.body.isHealthy;
+//     users[0].Kidneys.push({
+//         healthy: isHealthy
+//     });
 
-    res.json({
-        message: 'Kidney added successfully',
-        kidneys: users[0].Kidneys
-    });
-});
-
-
-app.put('/', (req, res) => {
-    for(let i =0 ; i< users[0].Kidneys.length; i++){
-        users[0].Kidneys[i].healthy = false;
-    }
-
-    res.json({});
+//     res.json({
+//         message: 'Kidney added successfully',
+//         kidneys: users[0].Kidneys
+//     });
+// });
 
 
-});
+// app.put('/', (req, res) => {
+//     for(let i =0 ; i< users[0].Kidneys.length; i++){
+//         users[0].Kidneys[i].healthy = false;
+//     }
 
-app.delete('/', (req, res) => {
+//     res.json({});
 
-    // 411 -- if no unhealthy kidneys
-    // only if one bad or unhealthy kidney than to this 
 
-    if(atleastOneUnhealthyKidney()){
-        const newKidneys = [] ; 
-        for(let i =0 ; i< users[0].Kidneys.length; i++){
-            if(users[0].Kidneys[i].healthy){
-            newKidneys.push(users[0].Kidneys[i]);
-            }
-        }
+// });
 
-        users[0].Kidneys = newKidneys;
+// app.delete('/', (req, res) => {
 
-         res.json({
-        msg : "done"
-        });
+//     // 411 -- if no unhealthy kidneys
+//     // only if one bad or unhealthy kidney than to this 
 
-    }
-    else{
-        // res.sendStatus(411);
-        res.status(411).json({
-            msg : "You need atleast one unhealthy kidney"
-        });
-    }
+//     if(atleastOneUnhealthyKidney()){
+//         const newKidneys = [] ; 
+//         for(let i =0 ; i< users[0].Kidneys.length; i++){
+//             if(users[0].Kidneys[i].healthy){
+//             newKidneys.push(users[0].Kidneys[i]);
+//             }
+//         }
+
+//         users[0].Kidneys = newKidneys;
+
+//          res.json({
+//         msg : "done"
+//         });
+
+//     }
+//     else{
+//         // res.sendStatus(411);
+//         res.status(411).json({
+//             msg : "You need atleast one unhealthy kidney"
+//         });
+//     }
     
     
     
 
 
-});
+// });
 
-// edge case for delete function 
-function atleastOneUnhealthyKidney() {
-    let atleastOneUnhealthyKidney = false;
+// // edge case for delete function 
+// function atleastOneUnhealthyKidney() {
+//     let atleastOneUnhealthyKidney = false;
 
-    for(let i =0 ; i< users[0].Kidneys.length; i++){
-        if(!users[0].Kidneys[i].healthy){
-            atleastOneUnhealthyKidney = true;
+//     for(let i =0 ; i< users[0].Kidneys.length; i++){
+//         if(!users[0].Kidneys[i].healthy){
+//             atleastOneUnhealthyKidney = true;
         
-        }
-    }
-    return atleastOneUnhealthyKidney;
+//         }
+//     }
+//     return atleastOneUnhealthyKidney;
 
+// }
+
+// app.listen(3000, () => {
+//     console.log('Server is running on port 3000');
+// });
+
+// map , filter , arrow 
+// .startsWith
+
+
+function sum(a){
+    let ans = 0;
+    for(let i = 0; i <= a; i++){
+        ans += i;
+    }
+    return ans;
 }
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-});
+const sum = (a) => {
+    let ans = 0;
+    for(let i = 0; i <= a; i++){
+        ans += i;
+    }
+    return ans;
+}
+
+
+Array = [1,2,3,4,5]
+
+const ans = Array.map((element) => {
+    return element * 2;
+})
+
+console.log(ans);
+
+const filter = Array.filter((element) => {
+    return element % 2 === 0;
+})
+console.log(filter);
