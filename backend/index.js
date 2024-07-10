@@ -209,39 +209,88 @@
 // console.log(filter);
 
 
+// const express = require('express');
+
+
+// const app = express();
+
+// app.get('/', (req, res) => {   
+
+//     const username = req.headers.username;  
+//     const password = req.headers.password;
+//     const kidneyId = (req.query.kidneyId) ;
+//     console.log(username, password, kidneyId);
+//     // exist first appraoch is always best 
+
+//     if(username !== 'admin' ||  password !== 'admin'){
+
+//         res.status(400).json({
+//             "message" : "Invalid credentials"})
+//         return 
+         
+//     }
+
+//     if(kidneyId != 1 && kidneyId != 2){
+//         res.status(400).json({
+//             "message" : "something went wrong"})
+//         return
+        
+//     } 
+
+//     res.json({
+//         "message" : "success"
+//     });
+   
+// });
+
+// we have used return so the cursor will not go to the next line while alternatively we can use else if or else
+
+
+// app.listen(3000);
+
+// this is the ugly solution as you have to create these prechecks for every post ,get , delete , put request
+
+// the best solution is the middle ware  
+
+// crud function can take a lot of callback function in them 
+
+// next() ka intro 
+
+
+// to catch any body that postman sends you or anyone ,  you have to use app.use(express.json()) , 
+// this is a middleware that will catch any body that is sent to the server
+
+// when you know that the middleware will you call in every route then you can use app.use(middleware), after this
+
+// input validation 
+
 const express = require('express');
 
 
 const app = express();
 
-app.get('/', (req, res) => {   
+app.use(express.json());
 
-    const username = req.headers.username;  
-    const password = req.headers.password;
-    const kidneyId = (req.query.kidneyId) ;
-    console.log(username, password, kidneyId);
-    // exist first appraoch is always best 
 
-    if(username !== 'admin' ||  password !== 'admin'){
+app.get('/', (req, res) => {
 
-        res.status(400).json({
-            "message" : "Invalid credentials"})
-        return 
-         
-    }
+    const kidneys = req.body.kidney; 
+    console.log(kidneys);
 
-    if(kidneyId != 1 && kidneyId != 2){
-        res.status(400).json({
-            "message" : "something went wrong"})
-        return
-        
-    } 
+    const kidneyLength = kidneys.length;
+    console.log(kidneyLength);
 
-    res.json({
-        "message" : "success"
-    });
-   
-});
+    res.send("you have " + kidneyLength + " kidneys");
+})
+
+// global catches 
+app.use( function(err, req, res, next){
+    // res.json({
+    //     msg : "sorry something is up with our server"
+    // })
+    res.status(500).send('something went wrong');
+
+})
 
 
 app.listen(3000);
