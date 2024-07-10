@@ -148,3 +148,17 @@ running the get function in my phone as using laptop ip using ifconfig ANd havin
 in script in html there is variable called const backendUrl = ""
 
 //  create a todo app that lets user store todos on the server
+
+
+mongodb+srv://mayankvashishtt:Mayank2005@cluster0.nd2dv1y.mongodb.net/
+
+
+postgresql://test_owner:fLctdWj2Y7kr@ep-falling-butterfly-a5pvncjr.us-east-2.aws.neon.tech/test?sslmode=require
+
+middlewares 
+
+2 pre-checks any website do -- 
+authentication
+input validation 
+
+

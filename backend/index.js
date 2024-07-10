@@ -172,32 +172,76 @@
 // .startsWith
 
 
-function sum(a){
-    let ans = 0;
-    for(let i = 0; i <= a; i++){
-        ans += i;
+// function sum(a){
+//     let ans = 0;
+//     for(let i = 0; i <= a; i++){
+//         ans += i;
+//     }
+//     return ans;
+// }
+
+// const sum = (a) => {
+//     let ans = 0;
+//     for(let i = 0; i <= a; i++){
+//         ans += i;
+//     }
+//     return ans;
+// }
+
+
+// Array = [1,2,3,4,5]
+
+// const an = function (a){
+//     return a * 2;
+// }
+
+// const ans = Array.map(an);
+
+// // const ans = Array.map((element) => {
+// //     return element * 2;
+// // })
+
+// console.log(ans);
+
+// const filter = Array.filter((element) => {
+//     return element % 2 === 0;
+// })
+// console.log(filter);
+
+
+const express = require('express');
+
+
+const app = express();
+
+app.get('/', (req, res) => {   
+
+    const username = req.headers.username;  
+    const password = req.headers.password;
+    const kidneyId = (req.query.kidneyId) ;
+    console.log(username, password, kidneyId);
+    // exist first appraoch is always best 
+
+    if(username !== 'admin' ||  password !== 'admin'){
+
+        res.status(400).json({
+            "message" : "Invalid credentials"})
+        return 
+         
     }
-    return ans;
-}
 
-const sum = (a) => {
-    let ans = 0;
-    for(let i = 0; i <= a; i++){
-        ans += i;
-    }
-    return ans;
-}
+    if(kidneyId != 1 && kidneyId != 2){
+        res.status(400).json({
+            "message" : "something went wrong"})
+        return
+        
+    } 
+
+    res.json({
+        "message" : "success"
+    });
+   
+});
 
 
-Array = [1,2,3,4,5]
-
-const ans = Array.map((element) => {
-    return element * 2;
-})
-
-console.log(ans);
-
-const filter = Array.filter((element) => {
-    return element % 2 === 0;
-})
-console.log(filter);
+app.listen(3000);
