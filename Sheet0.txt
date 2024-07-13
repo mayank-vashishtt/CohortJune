@@ -162,3 +162,8 @@ authentication
 input validation 
 
 
+hashing and encryption 
+JWT , jwt.io json web token , you need password to verify it
+
+
+local storage
