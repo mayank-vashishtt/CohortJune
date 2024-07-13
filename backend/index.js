@@ -263,34 +263,96 @@
 // when you know that the middleware will you call in every route then you can use app.use(middleware), after this
 
 // input validation 
+// //  middleware have 3 arguments req res and next
+// const express = require('express');
+// const zod = require('zod');
+// const app = express();
 
+// const schema = zod.array(zod.number());
+
+// {email -- string => email
+// password -- string altleast `8 characters
+// country- US IN }
+
+// const schema = zod.object({
+//     email : zod.string().email(),
+//     passworrd : zod.string().min(8),
+//     country : zod.literal('US').or(zod.literal('IN')),
+//     kidneys : zod.array(zod.number)
+// });
+ 
+
+
+// app.use(express.json());
+
+
+// app.post('/', (req, res) => {
+
+//     const kidneys = req.body; 
+//     // console.log(kidneys);
+//     const response = schema.safeParse(kidneys);
+
+//     if(!response.success){
+//         res.status(411).json({
+//             msg : "Invalid input"
+//         });
+//         return;
+//     }
+
+    // const kidneyLength = kidneys.length;
+    // console.log(kidneyLength);
+
+    // res.send("you have " + kidneyLength + " kidneys");
+    // res.send(response)
+// })
+
+// global catches 
+// app.use( function(err, req, res, next){
+//     // res.json({
+//     //     msg : "sorry something is up with our server"
+//     // })
+//     res.status(500).send('something went wrong');
+
+// })
+
+
+// app.listen(3000);
+
+
+// how can we do better input validation ?? 
+// input validation libraries
+// zod library - -schmea validation 
+
+
+const zod = require('zod');
 const express = require('express');
-
-
 const app = express();
+
+const schema = zod.object({
+    email: zod.string().email(),
+    password: zod.string().min(8), // Corrected typo
+    country: zod.literal('US').or(zod.literal('IN')),
+    kidneys: zod.array(zod.number())
+});
 
 app.use(express.json());
 
+app.post('/', (req, res) => {
+    const response = schema.safeParse(req.body); // Validate the entire request body
 
-app.get('/', (req, res) => {
+    if (!response.success) {
+        res.status(411).json({
+            msg: "Invalid input"
+        });
+        return;
+    }
 
-    const kidneys = req.body.kidney; 
-    console.log(kidneys);
-
+    const kidneys = req.body.kidneys; // Access the kidneys array from the validated request body
     const kidneyLength = kidneys.length;
-    console.log(kidneyLength);
 
     res.send("you have " + kidneyLength + " kidneys");
-})
+});
 
-// global catches 
-app.use( function(err, req, res, next){
-    // res.json({
-    //     msg : "sorry something is up with our server"
-    // })
-    res.status(500).send('something went wrong');
-
-})
-
-
-app.listen(3000);
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
