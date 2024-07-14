@@ -167,3 +167,11 @@ JWT , jwt.io json web token , you need password to verify it
 
 
 local storage
+
+
+JWT
+generating a jwt  -- getting the jwt through backend 
+
+decoding a jwt -- copying it , being close to it but can't verify it 
+
+verifying a jwt -- if come back, then it can verify it 

@@ -444,55 +444,74 @@
 
 
 
-const express = require("express");
-const mongoose = require("mongoose");
+// const express = require("express");
+// const mongoose = require("mongoose");
 
-const app = express();
-app.use(express.json());
+// const app = express();
+// app.use(express.json());
 
-mongoose
-    .connect("mongodb+srv://mayankvashishtt:Mayank2005@cluster0.nd2dv1y.mongodb.net/user_app")
-    .then(() => {
-        console.log("db connected successfully!");
-    })
-    .catch((err) => {
-        console.error("Error connecting to the database", err);
-    });
+// mongoose
+//     .connect("mongodb+srv://mayankvashishtt:Mayank2005@cluster0.nd2dv1y.mongodb.net/user_app")
+//     .then(() => {
+//         console.log("db connected successfully!");
+//     })
+//     .catch((err) => {
+//         console.error("Error connecting to the database", err);
+//     });
 
-const userSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    password: String
-});
+// const userSchema = new mongoose.Schema({
+//     name: String,
+//     email: String,
+//     password: String
+// });
 
-const User = mongoose.model('User', userSchema);
+// const User = mongoose.model('User', userSchema);
 
-app.post("/signup", async (req, res) => {
-    const { username, password, name } = req.body;
-    console.log(req.body); // Add this line for debugging
+// app.post("/signup", async (req, res) => {
+//     const { username, password, name } = req.body;
+//     console.log(req.body); // Add this line for debugging
 
-    try {
-        const existingUser = await User.findOne({ email: username });
-        if (existingUser) {
-            return res.status(400).send("Username already exists");
-        }
+//     try {
+//         const existingUser = await User.findOne({ email: username });
+//         if (existingUser) {
+//             return res.status(400).send("Username already exists");
+//         }
 
-        const user = new User({
-            name: name,
-            email: username,
-            password: password
-        });
+//         const user = new User({
+//             name: name,
+//             email: username,
+//             password: password
+//         });
 
-        await user.save();
-        res.json({ msg: "User created successfully" });
-    } 
-    catch (error) {
-        console.error("Error during signup", error); // Add this line for debugging
-        res.status(500).send("Internal Server Error");
-    }
-});
+//         await user.save();
+//         res.json({ msg: "User created successfully" });
+//     } 
+//     catch (error) {
+//         console.error("Error during signup", error); // Add this line for debugging
+//         res.status(500).send("Internal Server Error");
+//     }
+// });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+// const PORT = 3000;
+// app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+// });
+
+
+const jwt = require("jsonwebtoken");
+
+// decode
+// verify 
+// generate  -- sign 
+
+const value = {
+    name : "hari",
+    accountNumber : 1234567890
+}
+
+// jwt
+const token = jwt.sign(value, "secret");
+
+// this token has been generated using this secret. Hence, it can only be verified using this secret
+console.log(token);
+// bank cheque example
