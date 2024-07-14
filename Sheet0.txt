@@ -175,3 +175,11 @@ generating a jwt  -- getting the jwt through backend
 decoding a jwt -- copying it , being close to it but can't verify it 
 
 verifying a jwt -- if come back, then it can verify it 
+
+
+
+DOM -- document object model 
+js makes html page active and dyanmic via DOM 
+
+
+react -- library
