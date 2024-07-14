@@ -515,3 +515,5 @@ const token = jwt.sign(value, "secret");
 // this token has been generated using this secret. Hence, it can only be verified using this secret
 console.log(token);
 // bank cheque example
+// jwt.decode(qwerty) => {name : "hari", accountNumber : 1234567890}     -- can be used as boolean too 
+// jwt.verify(qwerty, "secret") => {        --  using try and catch for true and false
