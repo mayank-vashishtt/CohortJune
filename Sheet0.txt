@@ -183,3 +183,8 @@ js makes html page active and dyanmic via DOM
 
 
 react -- library
+
+
+
+database -- where data is stored persistently
+

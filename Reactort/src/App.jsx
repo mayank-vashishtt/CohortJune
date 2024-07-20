@@ -22,3 +22,4 @@ export default App
 
 // state variable -- consicous watch if it going to change then dom will change
 // state variable -- useState
+// only give function signature in react

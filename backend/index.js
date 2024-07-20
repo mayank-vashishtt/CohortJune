@@ -498,22 +498,77 @@
 // });
 
 
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 
 // decode
 // verify 
 // generate  -- sign 
 
-const value = {
-    name : "hari",
-    accountNumber : 1234567890
-}
+// const value = {
+//     name : "hari",
+//     accountNumber : 1234567890
+// }
 
 // jwt
-const token = jwt.sign(value, "secret");
+// const token = jwt.sign(value, "secret");
 
 // this token has been generated using this secret. Hence, it can only be verified using this secret
-console.log(token);
+// console.log(token);
 // bank cheque example
 // jwt.decode(qwerty) => {name : "hari", accountNumber : 1234567890}     -- can be used as boolean too 
 // jwt.verify(qwerty, "secret") => {        --  using try and catch for true and false
+
+
+// frontend  -- express(do auth check )-- backend
+// firebase is exception
+// user.findOne ({})
+
+
+// cluster > database > table 
+
+
+
+
+const express = require("express");
+const mongoose = require("mongoose");
+
+
+const app = express();
+app.use(express.json());
+
+
+
+mongoose
+    .connect("mongodb+srv://mayankvashishtt:Mayank2005@cluster0.nd2dv1y.mongodb.net/user_app")
+    .then(() => {
+        console.log("db connected successfully!");
+    })
+    .catch((err) => {
+        console.error("Error connecting to the database", err);
+    });
+
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    password: String
+});
+
+
+const User = mongoose.model('User', userSchema);
+
+User.create({
+    username : req.body.username,
+    password : req.body.password
+});
+
+
+// to update all 
+
+User.update({}, {
+    username : "ths"
+})
+
+
+User.deleteOne({
+    username: "madakjnnkl@gmail.com"
+})
