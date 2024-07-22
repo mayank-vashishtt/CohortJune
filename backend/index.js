@@ -550,11 +550,23 @@ mongoose
 const userSchema = new mongoose.Schema({
     name: String,
     email: String,
-    password: String
+    password: String,
+    purhasedCourse: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Course'
+    }]
+});
+
+
+const purchaseSchema = new mongoose.Schema({
+    userId: String,
+    productId: String,
+    quantity: Number
 });
 
 
 const User = mongoose.model('User', userSchema);
+const Course = mongoose.model('Course', userSchema);
 
 User.create({
     username : req.body.username,
