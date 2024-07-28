@@ -188,3 +188,14 @@ react -- library
 
 database -- where data is stored persistently
 
+
+
+Difference between Let var and const
+var: Function-scoped, hoisted with initialization to undefined, can be re-declared and updated.
+let: Block-scoped, hoisted without initialization, cannot be re-declared in the same scope but can be updated.
+const: Block-scoped, hoisted without initialization, cannot be re-declared or updated (except for object properties and array elements).
+
+
+
+
+
