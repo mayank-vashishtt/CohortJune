@@ -32,3 +32,8 @@ export default App
 
 // react worry about 3 things  --- components , state , re-rendering 
 // state represents the dyanmic things on your app, things that get change   
+
+// react generally converts into html, javascript and css
+
+
+// 
