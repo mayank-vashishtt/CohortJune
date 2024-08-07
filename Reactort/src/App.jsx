@@ -73,7 +73,7 @@ export default App
 // alert() -- to show alert
 // .appencChild() -- to add element in dom
 // .removeChild() -- to remove element from dom
-// .innerHTML -- to change inner html
+// .innerHTML -- to change inner html 
 // .innerText -- to change text
 // .style -- to change style
 // document.createElement() -- to create element
